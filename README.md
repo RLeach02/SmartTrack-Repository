@@ -1,4 +1,4 @@
-# MedicalRecordingSystem
-## SteelyMite: Don Le
-## RLeach02 : Ryan Leach
-## Atlas-Knight: Tristan Kelly  
+# SmartTrack Inventory Management Application
+# Ryan Leach
+# Andrew Still
+  
