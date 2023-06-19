@@ -20,136 +20,21 @@ DROP DATABASE IF EXISTS `smarttrack_db`;
 CREATE DATABASE IF NOT EXISTS `smarttrack_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `smarttrack_db`;
 
--- Dumping structure for table smarttrack_db.employee
-DROP TABLE IF EXISTS `employee`;
-CREATE TABLE IF NOT EXISTS `employee` (
-  `EmployeeID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `PasswordHash` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Role` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`EmployeeID`)
+-- Dumping structure for table smarttrack_db.employees
+DROP TABLE IF EXISTS `employees`;
+CREATE TABLE IF NOT EXISTS `employees` (
+  `employeeID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id` int DEFAULT NULL,
+  `password_hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`employeeID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack_db.employee: ~119 rows (approximately)
-INSERT INTO `employee` (`EmployeeID`, `PasswordHash`, `Role`) VALUES
-	('1020', '194', 'user'),
-	('1122', '249', 'user'),
-	('12', '3', 'user'),
-	('12.1', '3', 'user'),
-	('12.3', '3', 'manager'),
-	('1224', '300', 'user'),
-	('1326', '351', 'user'),
-	('1428', '390', 'user'),
-	('1530', '461', 'user'),
-	('1632', '528', 'user'),
-	('1734', '595', 'user'),
-	('1836', '666', 'user'),
-	('1938', '705', 'user'),
-	('2040', '820', 'user'),
-	('2142', '871', 'user'),
-	('2244', '990', 'user'),
-	('2346', '1077', 'user'),
-	('24', '10', 'user'),
-	('24.2', '10', 'user'),
-	('24.6', '10', 'manager'),
-	('2448', '1176', 'user'),
-	('2550', '1275', 'user'),
-	('2652', '1362', 'user'),
-	('2754', '1449', 'user'),
-	('2856', '1596', 'user'),
-	('2958', '1679', 'user'),
-	('3060', '1814', 'user'),
-	('3162', '1949', 'user'),
-	('3264', '2080', 'user'),
-	('3366', '2211', 'user'),
-	('3468', '2346', 'user'),
-	('3570', '2481', 'user'),
-	('36', '17', 'user'),
-	('36.300000000000001', '17', 'user'),
-	('36.8999999999999995', '17', 'manager'),
-	('3672', '2564', 'user'),
-	('3774', '2711', 'user'),
-	('3876', '2926', 'user'),
-	('3978', '3013', 'user'),
-	('4080', '3240', 'user'),
-	('4182', '3339', 'user'),
-	('4284', '3554', 'user'),
-	('4386', '3673', 'user'),
-	('4488', '3852', 'user'),
-	('4590', '4095', 'user'),
-	('4692', '4262', 'user'),
-	('4794', '4461', 'user'),
-	('48', '36', 'user'),
-	('48.4', '36', 'user'),
-	('4896', '4656', 'user'),
-	('49.2', '36', 'manager'),
-	('4998', '4851', 'user'),
-	('50100', '5050', 'user'),
-	('510', '55', 'user'),
-	('510.5', '55', 'user'),
-	('511.5', '55', 'manager'),
-	('51102', '5217', 'user'),
-	('52104', '5396', 'user'),
-	('53106', '5575', 'user'),
-	('54108', '5886', 'user'),
-	('55110', '6037', 'user'),
-	('56112', '6328', 'user'),
-	('57114', '6491', 'user'),
-	('58116', '6770', 'user'),
-	('59118', '6921', 'user'),
-	('60120', '7196', 'user'),
-	('61122', '7471', 'user'),
-	('612', '78', 'user'),
-	('612.600000000000001', '78', 'user'),
-	('613.799999999999999', '78', 'manager'),
-	('62124', '7734', 'user'),
-	('63126', '7997', 'user'),
-	('64128', '8256', 'user'),
-	('65130', '8515', 'user'),
-	('66132', '8778', 'user'),
-	('67134', '9041', 'user'),
-	('68136', '9316', 'user'),
-	('69138', '9591', 'user'),
-	('70140', '9742', 'user'),
-	('71142', '10021', 'user'),
-	('714', '101', 'user'),
-	('714.700000000000001', '101', 'user'),
-	('716.099999999999998', '101', 'manager'),
-	('72144', '10440', 'user'),
-	('73146', '10731', 'user'),
-	('74148', '10882', 'user'),
-	('75150', '11193', 'user'),
-	('76152', '11628', 'user'),
-	('77154', '11807', 'user'),
-	('78156', '12230', 'user'),
-	('79158', '12429', 'user'),
-	('80160', '12880', 'user'),
-	('81162', '13075', 'user'),
-	('816', '136', 'user'),
-	('816.8', '136', 'user'),
-	('818.4', '136', 'manager'),
-	('82164', '13530', 'user'),
-	('83166', '13697', 'user'),
-	('84168', '14196', 'user'),
-	('85170', '14375', 'user'),
-	('86172', '14750', 'user'),
-	('87174', '15221', 'user'),
-	('88176', '15576', 'user'),
-	('89178', '15803', 'user'),
-	('90180', '16146', 'user'),
-	('91182', '16617', 'user'),
-	('918', '171', 'user'),
-	('918.900000000000002', '171', 'user'),
-	('920.7', '171', 'manager'),
-	('92184', '17020', 'user'),
-	('93186', '17359', 'user'),
-	('94188', '17750', 'user'),
-	('95190', '18141', 'user'),
-	('96192', '18528', 'user'),
-	('97194', '18915', 'user'),
-	('98196', '19306', 'user'),
-	('99', 'asvbnadjhnvijcuwen42398cnm', 'manager'),
-	('99198', '19697', 'user'),
-	('Johnathan123', 'jqdafnvqdkfvnkadfvnbaqs', 'user');
+-- Dumping data for table smarttrack_db.employees: ~3 rows (approximately)
+INSERT INTO `employees` (`employeeID`, `id`, `password_hash`, `role`) VALUES
+	('1020', 1, '194', 'user'),
+	('1122', 2, '249', 'user'),
+	('12', 3, '3', 'user');
 
 -- Dumping structure for table smarttrack_db.inventory
 DROP TABLE IF EXISTS `inventory`;
@@ -162,27 +47,28 @@ CREATE TABLE IF NOT EXISTS `inventory` (
   KEY `Product Id` (`ProductID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack_db.inventory: ~15 rows (approximately)
+-- Dumping data for table smarttrack_db.inventory: ~16 rows (approximately)
 INSERT INTO `inventory` (`ProductID`, `Location`, `ProductName`, `Stock`) VALUES
-	('1403', 'Toiletries-4-7-3', 'Soft Kitchen Wipes', 4),
-	('1403', 'Toiletries-4-7-2', 'Soft Kitchen Wipes', 2),
-	('1403', 'Toiletries-4-7-1', 'Soft Kitchen Wipes', 2),
-	('1403', 'Toiletries-4-7-4', 'Soft Kitchen Wipes', 1),
-	('17089', 'LonglifeFoods-14-2-3', 'Pretezel Packs', 5),
-	('17089', 'LonglifeFoods-14-2-2', 'Pretezel Packs', 3),
-	('17089', 'LonglifeFoods-14-2-1', 'Pretezel Packs', 1),
-	('12021', 'LongLifeFoods-12-6-6', 'Instant Curry Packets', 2),
-	('12021', 'LongLifeFoods-12-6-5', 'Instant Curry Packets', 1),
-	('12021', 'LongLifeFoods-12-6-4', 'Instant Curry Packets', 4),
-	('12021', 'LongLifeFoods-12-6-3', 'Instant Curry Packets', 2),
-	('28', 'CannedDrinks-1-3-9', 'Pepsi', 3),
-	('28', 'CannedDrinks-1-3-8', 'Pepsi', 3),
-	('28', 'CannedDrinks-1-3-11', 'Pepsi', 1),
-	('28', 'CannedDrinks-1-3-10', 'Pepsi', 2);
+	('4260', 'toiletries-4-2-5', 'Huggies', 3),
+	('4260', 'toiletries-4-2-4', 'Huggies', 2),
+	('4260', 'toiletries-4-2-3', 'Huggies', 3),
+	('4260', 'toiletries-4-2-2', 'Huggies', 1),
+	('23742', 'LongLifeFoods-2-5-3', 'Helton Snacks', 3),
+	('23742', 'LongLifeFoods-2-5-2', 'Helton Snacks', 2),
+	('23742', 'LongLifeFoods-2-5-1', 'Helton Snacks', 2),
+	('23742', 'LongLifeFoods-2-5-6', 'Helton Snacks', 2),
+	('14266', 'LongLifeFoods-10-1-3', 'Georgie Hall', 3),
+	('14266', 'LongLifeFoods-10-1-2', 'Georgie Hall', 1),
+	('14266', 'LongLifeFoods-10-1-1', 'Georgie Hall', 1),
+	('14266', 'LongLifeFoods-10-1-4', 'Georgie Hall', 4),
+	('28', 'CannedDrinks-1-3-9', 'PepsiCo', 1),
+	('28', 'CannedDrinks-1-3-8', 'PepsiCo', 3),
+	('28', 'CannedDrinks-1-3-11', 'PepsiCo', 3),
+	('28', 'CannedDrinks-1-3-10', 'PepsiCo', 2);
 
--- Dumping structure for table smarttrack_db.item
-DROP TABLE IF EXISTS `item`;
-CREATE TABLE IF NOT EXISTS `item` (
+-- Dumping structure for table smarttrack_db.items
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE IF NOT EXISTS `items` (
   `RFID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Location` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `ProductID` varchar(50) NOT NULL,
@@ -193,44 +79,90 @@ CREATE TABLE IF NOT EXISTS `item` (
   CONSTRAINT `FK_item_supplier` FOREIGN KEY (`Supplier`) REFERENCES `supplier` (`CompanyName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack_db.item: ~36 rows (approximately)
-INSERT INTO `item` (`RFID`, `Location`, `ProductID`, `ProductName`, `Supplier`) VALUES
-	('1', 'Toiletries-4-7-3', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('10', 'LonglifeFoods-14-2-3', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('11', 'LonglifeFoods-14-2-3', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('12', 'LonglifeFoods-14-2-1', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('13', 'LonglifeFoods-14-2-2', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('14', 'LonglifeFoods-14-2-3', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('15', 'LonglifeFoods-14-2-2', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('16', 'LonglifeFoods-14-2-3', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('17', 'LonglifeFoods-14-2-2', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('18', 'LonglifeFoods-14-2-3', '17089', 'Pretezel Packs', 'Helton Snacks'),
-	('19', 'LongLifeFoods-12-6-5', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('2', 'Toiletries-4-7-3', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('20', 'LongLifeFoods-12-6-4', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('21', 'LongLifeFoods-12-6-3', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('22', 'LongLifeFoods-12-6-6', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('23', 'LongLifeFoods-12-6-4', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('24', 'LongLifeFoods-12-6-4', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('25', 'LongLifeFoods-12-6-3', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('26', 'LongLifeFoods-12-6-4', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('27', 'LongLifeFoods-12-6-6', '12021', 'Instant Curry Packets', 'Georgie Hall'),
-	('28', 'CannedDrinks-1-3-10', '28', 'Pepsi', 'PepsiCo'),
-	('29', 'CannedDrinks-1-3-11', '28', 'Pepsi', 'PepsiCo'),
-	('3', 'Toiletries-4-7-3', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('30', 'CannedDrinks-1-3-8', '28', 'Pepsi', 'PepsiCo'),
-	('31', 'CannedDrinks-1-3-9', '28', 'Pepsi', 'PepsiCo'),
-	('32', 'CannedDrinks-1-3-8', '28', 'Pepsi', 'PepsiCo'),
-	('33', 'CannedDrinks-1-3-9', '28', 'Pepsi', 'PepsiCo'),
-	('34', 'CannedDrinks-1-3-10', '28', 'Pepsi', 'PepsiCo'),
-	('35', 'CannedDrinks-1-3-8', '28', 'Pepsi', 'PepsiCo'),
-	('36', 'CannedDrinks-1-3-9', '28', 'Pepsi', 'PepsiCo'),
-	('4', 'Toiletries-4-7-4', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('5', 'Toiletries-4-7-1', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('6', 'Toiletries-4-7-2', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('7', 'Toiletries-4-7-2', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('8', 'Toiletries-4-7-3', '1403', 'Soft Kitchen Wipes', 'Huggies'),
-	('9', 'Toiletries-4-7-1', '1403', 'Soft Kitchen Wipes', 'Huggies');
+-- Dumping data for table smarttrack_db.items: ~36 rows (approximately)
+INSERT INTO `items` (`RFID`, `Location`, `ProductID`, `ProductName`, `Supplier`) VALUES
+	('1', 'CannedDrinks-1-3-10', '28', 'Pepsi', 'PepsiCo'),
+	('10', 'LongLifeFoods-10-1-3', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('11', 'LongLifeFoods-10-1-4', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('12', 'LongLifeFoods-10-1-1', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('13', 'LongLifeFoods-10-1-4', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('14', 'LongLifeFoods-10-1-2', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('15', 'LongLifeFoods-10-1-3', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('16', 'LongLifeFoods-10-1-3', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('17', 'LongLifeFoods-10-1-4', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('18', 'LongLifeFoods-10-1-4', '14266', 'Instant Curry Powder', 'Georgie Hall'),
+	('19', 'LongLifeFoods-2-5-3', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('2', 'CannedDrinks-1-3-8', '28', 'Pepsi', 'PepsiCo'),
+	('20', 'LongLifeFoods-2-5-2', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('21', 'LongLifeFoods-2-5-6', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('22', 'LongLifeFoods-2-5-1', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('23', 'LongLifeFoods-2-5-2', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('24', 'LongLifeFoods-2-5-6', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('25', 'LongLifeFoods-2-5-1', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('26', 'LongLifeFoods-2-5-3', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('27', 'LongLifeFoods-2-5-3', '23742', 'Pretzel Snacks', 'Helton Snacks'),
+	('28', 'toiletries-4-2-5', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('29', 'toiletries-4-2-5', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('3', 'CannedDrinks-1-3-9', '28', 'Pepsi', 'PepsiCo'),
+	('30', 'toiletries-4-2-4', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('31', 'toiletries-4-2-3', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('32', 'toiletries-4-2-2', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('33', 'toiletries-4-2-4', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('34', 'toiletries-4-2-5', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('35', 'toiletries-4-2-3', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('36', 'toiletries-4-2-3', '4260', 'Soft Kitchen Wipes', 'Huggies'),
+	('4', 'CannedDrinks-1-3-8', '28', 'Pepsi', 'PepsiCo'),
+	('5', 'CannedDrinks-1-3-11', '28', 'Pepsi', 'PepsiCo'),
+	('6', 'CannedDrinks-1-3-8', '28', 'Pepsi', 'PepsiCo'),
+	('7', 'CannedDrinks-1-3-11', '28', 'Pepsi', 'PepsiCo'),
+	('8', 'CannedDrinks-1-3-10', '28', 'Pepsi', 'PepsiCo'),
+	('9', 'CannedDrinks-1-3-11', '28', 'Pepsi', 'PepsiCo');
+
+-- Dumping structure for table smarttrack_db.migrations
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table smarttrack_db.migrations: ~1 rows (approximately)
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(1, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+
+-- Dumping structure for table smarttrack_db.personal_access_tokens
+DROP TABLE IF EXISTS `personal_access_tokens`;
+CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint unsigned NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table smarttrack_db.personal_access_tokens: ~0 rows (approximately)
+
+-- Dumping structure for table smarttrack_db.sessions
+DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int unsigned NOT NULL,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Dumping data for table smarttrack_db.sessions: ~1 rows (approximately)
+INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
+	('IXMzu3GWmfDqsLaZA_oSLLkTVrtZaD_g', 1687062132, '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"}}');
 
 -- Dumping structure for table smarttrack_db.supplier
 DROP TABLE IF EXISTS `supplier`;
