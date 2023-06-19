@@ -6,7 +6,7 @@ Due to complexities in the computational requirements of the mobile development 
 
 Additional complexities were met in the initial development of the site using the Node.js package with Express frameworks and EJS views. It was found that JavaScript lacked the functionality to efficiently handle the operations required by the site in communication with elements of the database through complex query designation.
 	
-	As such, the project was redesigned using a Laravel framework to communicate to the Blade views 	and Laragon Database.
+As such, the project was redesigned using a Laravel framework to communicate to the Blade views and Laragon Database.
 
 Download Instruction:
 1. Ensure you have the Laragon application downloaded with the laravel suit. This should be saved in your C drive or relavent alternatives.
