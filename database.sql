@@ -15,12 +15,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for smarttrack
-DROP DATABASE IF EXISTS `smarttrack`;
-CREATE DATABASE IF NOT EXISTS `smarttrack` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `smarttrack`;
+-- Dumping database structure for smarttrack_db
+DROP DATABASE IF EXISTS `smarttrack_db`;
+CREATE DATABASE IF NOT EXISTS `smarttrack_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `smarttrack_db`;
 
--- Dumping structure for table smarttrack.employee
+-- Dumping structure for table smarttrack_db.employee
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE IF NOT EXISTS `employee` (
   `EmployeeID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   PRIMARY KEY (`EmployeeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack.employee: ~119 rows (approximately)
+-- Dumping data for table smarttrack_db.employee: ~119 rows (approximately)
 INSERT INTO `employee` (`EmployeeID`, `PasswordHash`, `Role`) VALUES
 	('1020', '194', 'user'),
 	('1122', '249', 'user'),
@@ -151,7 +151,7 @@ INSERT INTO `employee` (`EmployeeID`, `PasswordHash`, `Role`) VALUES
 	('99198', '19697', 'user'),
 	('Johnathan123', 'jqdafnvqdkfvnkadfvnbaqs', 'user');
 
--- Dumping structure for table smarttrack.inventory
+-- Dumping structure for table smarttrack_db.inventory
 DROP TABLE IF EXISTS `inventory`;
 CREATE TABLE IF NOT EXISTS `inventory` (
   `ProductID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `inventory` (
   KEY `Product Id` (`ProductID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack.inventory: ~15 rows (approximately)
+-- Dumping data for table smarttrack_db.inventory: ~15 rows (approximately)
 INSERT INTO `inventory` (`ProductID`, `Location`, `ProductName`, `Stock`) VALUES
 	('1403', 'Toiletries-4-7-3', 'Soft Kitchen Wipes', 4),
 	('1403', 'Toiletries-4-7-2', 'Soft Kitchen Wipes', 2),
@@ -180,7 +180,7 @@ INSERT INTO `inventory` (`ProductID`, `Location`, `ProductName`, `Stock`) VALUES
 	('28', 'CannedDrinks-1-3-11', 'Pepsi', 1),
 	('28', 'CannedDrinks-1-3-10', 'Pepsi', 2);
 
--- Dumping structure for table smarttrack.item
+-- Dumping structure for table smarttrack_db.item
 DROP TABLE IF EXISTS `item`;
 CREATE TABLE IF NOT EXISTS `item` (
   `RFID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   CONSTRAINT `FK_item_supplier` FOREIGN KEY (`Supplier`) REFERENCES `supplier` (`CompanyName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack.item: ~36 rows (approximately)
+-- Dumping data for table smarttrack_db.item: ~36 rows (approximately)
 INSERT INTO `item` (`RFID`, `Location`, `ProductID`, `ProductName`, `Supplier`) VALUES
 	('1', 'Toiletries-4-7-3', '1403', 'Soft Kitchen Wipes', 'Huggies'),
 	('10', 'LonglifeFoods-14-2-3', '17089', 'Pretezel Packs', 'Helton Snacks'),
@@ -232,7 +232,7 @@ INSERT INTO `item` (`RFID`, `Location`, `ProductID`, `ProductName`, `Supplier`) 
 	('8', 'Toiletries-4-7-3', '1403', 'Soft Kitchen Wipes', 'Huggies'),
 	('9', 'Toiletries-4-7-1', '1403', 'Soft Kitchen Wipes', 'Huggies');
 
--- Dumping structure for table smarttrack.supplier
+-- Dumping structure for table smarttrack_db.supplier
 DROP TABLE IF EXISTS `supplier`;
 CREATE TABLE IF NOT EXISTS `supplier` (
   `CompanyName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
   PRIMARY KEY (`CompanyName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table smarttrack.supplier: ~4 rows (approximately)
+-- Dumping data for table smarttrack_db.supplier: ~4 rows (approximately)
 INSERT INTO `supplier` (`CompanyName`, `Phone`, `Email`, `Address`) VALUES
 	('Georgie Hall', '0414523890', 'sam@georgiehall.com', '14 place Balder'),
 	('Helton Snacks', '0614523890', 'roger@gmail.com', '17 stabiesVil Wanniassa'),
